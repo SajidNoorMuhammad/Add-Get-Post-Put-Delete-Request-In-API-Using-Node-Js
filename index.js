@@ -1,12 +1,37 @@
 import express from "express"
 
+const tasks = [
+    {
+        id: 1,
+        task: "Drink Water"
+    },
+    {
+        id: 2,
+        task: "Complete Work"
+    },
+    {
+        id: 3,
+        task: "Playing Games"
+    }
+]
+
 const app = express();
 const PORT = 4000;
 
 app.get('/', (req, res) => {
-    console.log(req)
+    res.status(200).send(tasks);
+})
 
-    res.send('Hello World Welcome to the first api')
+app.post('/', (req, res) => {
+    res.send('Post Request Called')
+})
+
+app.put('/', (req, res) => {
+    res.send('Put Request Called')
+})
+
+app.delete('/', (req, res) => {
+    res.send('Delete Request Called')
 })
 
 app.listen(PORT, () => {
